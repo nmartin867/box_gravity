@@ -1,5 +1,5 @@
 //
-//  HelloWorldLayer.mm
+//  GameLayer.mm
 //  box_gravity
 //
 //  Created by Nick Martin on 11/11/13.
@@ -14,9 +14,6 @@
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
-
-
-
 
 enum {
 	kTagParentNode = 1,
@@ -51,8 +48,8 @@ enum {
 {
 	if( (self=[super init])) {
 		
+        [[SimpleAudioEngine sharedEngine]preloadEffect:@"bump.wav"];
 		// enable events
-		
 		self.touchEnabled = YES;
 		self.accelerometerEnabled = YES;
 		CGSize s = [CCDirector sharedDirector].winSize;
@@ -66,7 +63,7 @@ enum {
         bool is5 = (winSize.height == 568) || (winSize.width == 568);
         CGFloat centerOffsetX = is5 ? ((568-480)/2) : 0;
         self.position = ccp(centerOffsetX,0);
-       
+        
         if(is5)
         {
             // load the extended background from iPhone5
@@ -96,19 +93,12 @@ enum {
 {
 	delete world;
 	world = NULL;
-	
-	delete m_debugDraw;
-	m_debugDraw = NULL;
-	
 	[super dealloc];
-}	
+}
 
 
 -(void) initPhysics
 {
-	
-	CGSize s = [[CCDirector sharedDirector] winSize];
-	
 	b2Vec2 gravity;
 	gravity.Set(0.0f, -10.0f);
 	world = new b2World(gravity);
@@ -119,86 +109,83 @@ enum {
 	
 	world->SetContinuousPhysics(true);
 	
-	m_debugDraw = new GLESDebugDraw( PTM_RATIO );
-	world->SetDebugDraw(m_debugDraw);
     //contact listener
     _contactListener = new MyContactListener();
     world->SetContactListener(_contactListener);
+    [self createBorder];
 	
-	uint32 flags = 0;
-	flags += b2Draw::e_shapeBit;
-	//		flags += b2Draw::e_jointBit;
-	//		flags += b2Draw::e_aabbBit;
-	//		flags += b2Draw::e_pairBit;
-	//		flags += b2Draw::e_centerOfMassBit;
-	m_debugDraw->SetFlags(flags);		
-	
-	
-	// Define the ground body.
-	b2BodyDef groundBodyDef;
-	groundBodyDef.position.Set(0, 0); // bottom-left corner
-	
-	// Call the body factory which allocates memory for the ground body
-	// from a pool and creates the ground box shape (also from a pool).
-	// The body is also added to the world.
-	b2Body* groundBody = world->CreateBody(&groundBodyDef);
-	
-	// Define the ground box shape.
-	b2EdgeShape groundBox;		
-	
-	// bottom
-	
-	groundBox.Set(b2Vec2(0,0), b2Vec2(s.width/PTM_RATIO,0));
-	groundBody->CreateFixture(&groundBox,0);
-	
-	// top
-	groundBox.Set(b2Vec2(0,s.height/PTM_RATIO), b2Vec2(s.width/PTM_RATIO,s.height/PTM_RATIO));
-	groundBody->CreateFixture(&groundBox,0);
-	
-	// left
-	groundBox.Set(b2Vec2(0,s.height/PTM_RATIO), b2Vec2(0,0));
-	groundBody->CreateFixture(&groundBox,0);
-	
-	// right
-	groundBox.Set(b2Vec2(s.width/PTM_RATIO,s.height/PTM_RATIO), b2Vec2(s.width/PTM_RATIO,0));
-	groundBody->CreateFixture(&groundBox,0);
+    
+}
+
+-(void)createBorder{
+    
+    // for the screenBorder body we'll need these values
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    float widthInMeters = screenSize.width / PTM_RATIO;
+    float heightInMeters = screenSize.height / PTM_RATIO;
+    b2Vec2 lowerLeftCorner = b2Vec2(0, 0);
+    b2Vec2 lowerRightCorner = b2Vec2(widthInMeters, 0);
+    b2Vec2 upperLeftCorner = b2Vec2(0, heightInMeters);
+    b2Vec2 upperRightCorner = b2Vec2(widthInMeters, heightInMeters);
+    
+    // Define the static container body, which will provide the collisions at screen borders.
+    b2BodyDef screenBorderDef;
+    screenBorderDef.position.Set(0, 0);
+    b2Body* screenBorderBody = world->CreateBody(&screenBorderDef);
+    b2EdgeShape screenBorderShape;
+    
+    
+    // Create fixtures for the four borders (the border shape is re-used)
+    screenBorderShape.Set(lowerLeftCorner, lowerRightCorner);
+    screenBorderBody->CreateFixture(&screenBorderShape, 0);
+    screenBorderShape.Set(lowerRightCorner, upperRightCorner);
+    screenBorderBody->CreateFixture(&screenBorderShape, 0);
+    screenBorderShape.Set(upperRightCorner, upperLeftCorner);
+    screenBorderBody->CreateFixture(&screenBorderShape, 0);
+    screenBorderShape.Set(upperLeftCorner, lowerLeftCorner);
+    screenBorderBody->CreateFixture(&screenBorderShape, 0);
 }
 
 
 -(void) addNewSpriteAtPosition:(CGPoint)p
 {
-	// Define the dynamic body.
-	//Set up a 1m squared box in the physics world
-	b2BodyDef bodyDef;
-	bodyDef.type = b2_dynamicBody;
-	bodyDef.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
-	b2Body *body = world->CreateBody(&bodyDef);
-	
-	// Define another box shape for our dynamic body.
-	b2PolygonShape dynamicBox;
-	dynamicBox.SetAsBox(.5f, .5f);//These are mid points for our 1m box
-	
-	// Define the dynamic body fixture.
-	b2FixtureDef fixtureDef;
-	fixtureDef.shape = &dynamicBox;	
-	fixtureDef.density = 1.0f;
-	fixtureDef.friction = 0.3f;
-	body->CreateFixture(&fixtureDef);
-	
-
-	CCNode *parent = [self getChildByTag:kTagParentNode];
+    CCNode *parent = [self getChildByTag:kTagParentNode];
 	
 	//We have a 64x64 sprite sheet with 4 different 32x32 images.  The following code is
 	//just randomly picking one of the images
 	int idx = (CCRANDOM_0_1() > .5 ? 0:1);
 	int idy = (CCRANDOM_0_1() > .5 ? 0:1);
 	CCPhysicsSprite *sprite = [CCPhysicsSprite spriteWithTexture:spriteTexture_ rect:CGRectMake(32 * idx,32 * idy,32,32)];
-	[parent addChild:sprite];
+    sprite.tag = 1;
 	
+    
+	// Define the dynamic body.
+	//Set up a 1m squared box in the physics world
+	b2BodyDef bodyDef;
+	bodyDef.type = b2_dynamicBody;
+	bodyDef.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
+    bodyDef.userData = sprite;
+	b2Body *body = world->CreateBody(&bodyDef);
+	
+	// Define another box shape for our dynamic body.
+	b2PolygonShape dynamicBox;
+	dynamicBox.SetAsBox(.5f, .5f);//These are mid points for our 1m box
+    
+    // Define the dynamic body fixture.
+	b2FixtureDef fixtureDef;
+	fixtureDef.shape = &dynamicBox;
+	fixtureDef.density = 1.0f;
+	fixtureDef.friction = 0.3f;
+    fixtureDef.isSensor = false;
+    //fixtureDef.userData = sprite;
+	body->CreateFixture(&fixtureDef);
+	
+	
+	[parent addChild:sprite];
 	[sprite setPTMRatio:PTM_RATIO];
 	[sprite setB2Body:body];
 	[sprite setPosition: ccp( p.x, p.y)];
-
+    
 }
 
 -(void) update: (ccTime) dt
@@ -226,27 +213,14 @@ enum {
         if (bodyA->GetUserData() != NULL && bodyB->GetUserData() != NULL) {
             CCSprite *spriteA = (CCSprite *) bodyA->GetUserData();
             CCSprite *spriteB = (CCSprite *) bodyB->GetUserData();
-            
-            if (spriteA.tag == 1 && spriteB.tag == 2) {
-                toDestroy.push_back(bodyA);
-            } else if (spriteA.tag == 2 && spriteB.tag == 1) {
-                toDestroy.push_back(bodyB);
+            b2Vec2 aLinearVel = bodyA->GetLinearVelocity();
+            b2Vec2 bLinearVel = bodyB->GetLinearVelocity();
+            if((aLinearVel.y > 0.1) || (bLinearVel.y > 0.1)){
+                if (spriteA.tag == 1 && spriteB.tag == 1) {
+                    [self playBump];
+                }
             }
         }
-    }
-    
-    std::vector<b2Body *>::iterator pos2;
-    for(pos2 = toDestroy.begin(); pos2 != toDestroy.end(); ++pos2) {
-        b2Body *body = *pos2;
-        if (body->GetUserData() != NULL) {
-            CCSprite *sprite = (CCSprite *) body->GetUserData();
-            [_spriteSheet removeChild:sprite cleanup:YES];
-        }
-        _world->DestroyBody(body);
-    }
-    
-    if (toDestroy.size() > 0) {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"hahaha.caf"];   
     }
 }
 
@@ -258,6 +232,10 @@ enum {
 		location = [[CCDirector sharedDirector] convertToGL: location];
 		[self addNewSpriteAtPosition: location];
 	}
+}
+
+-(void)playBump{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"bump.wav"];
 }
 
 

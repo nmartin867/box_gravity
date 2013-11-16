@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16034D571838189700E1C186 /* bump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 16034D561838189700E1C186 /* bump.wav */; };
 		1635DB8A18332194005A2440 /* background-568h@2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1635DB8618332194005A2440 /* background-568h@2.plist */; };
 		1635DB8B18332194005A2440 /* background-568h@2.pvr.gz in Resources */ = {isa = PBXBuildFile; fileRef = 1635DB8718332194005A2440 /* background-568h@2.pvr.gz */; };
 		1635DB8C18332194005A2440 /* background.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1635DB8818332194005A2440 /* background.plist */; };
@@ -196,6 +197,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16034D561838189700E1C186 /* bump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bump.wav; sourceTree = "<group>"; };
 		1635DB8618332194005A2440 /* background-568h@2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "background-568h@2.plist"; path = "Resources/background-568h@2.plist"; sourceTree = "<group>"; };
 		1635DB8718332194005A2440 /* background-568h@2.pvr.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; name = "background-568h@2.pvr.gz"; path = "Resources/background-568h@2.pvr.gz"; sourceTree = "<group>"; };
 		1635DB8818332194005A2440 /* background.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = background.plist; path = Resources/background.plist; sourceTree = "<group>"; };
@@ -668,6 +670,7 @@
 		16E7E3911831D7CF00044394 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				16034D561838189700E1C186 /* bump.wav */,
 				1635DB8618332194005A2440 /* background-568h@2.plist */,
 				1635DB8718332194005A2440 /* background-568h@2.pvr.gz */,
 				1635DB8818332194005A2440 /* background.plist */,
@@ -1266,6 +1269,7 @@
 				16E7E3951831D7CF00044394 /* Default@2x.png in Resources */,
 				16E7E39F1831D7CF00044394 /* Icon-Small.png in Resources */,
 				16E7E39B1831D7CF00044394 /* Icon-72.png in Resources */,
+				16034D571838189700E1C186 /* bump.wav in Resources */,
 				16E7E3931831D7CF00044394 /* Default.png in Resources */,
 				16E7E39D1831D7CF00044394 /* Icon-Small-50.png in Resources */,
 				16E7E3A81831D7CF00044394 /* iTunesArtwork in Resources */,
