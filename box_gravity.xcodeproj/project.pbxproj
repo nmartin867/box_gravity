@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		16034D571838189700E1C186 /* bump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 16034D561838189700E1C186 /* bump.wav */; };
+		16034D5B183940B200E1C186 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16034D5A183940B200E1C186 /* MenuLayer.m */; };
+		16034D5E1839989200E1C186 /* choose.png in Resources */ = {isa = PBXBuildFile; fileRef = 16034D5C1839989200E1C186 /* choose.png */; };
+		16034D5F1839989200E1C186 /* take.png in Resources */ = {isa = PBXBuildFile; fileRef = 16034D5D1839989200E1C186 /* take.png */; };
+		16034D6218399CC700E1C186 /* PhotoSizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16034D6118399CC700E1C186 /* PhotoSizer.m */; };
 		1635DB8A18332194005A2440 /* background-568h@2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1635DB8618332194005A2440 /* background-568h@2.plist */; };
 		1635DB8B18332194005A2440 /* background-568h@2.pvr.gz in Resources */ = {isa = PBXBuildFile; fileRef = 1635DB8718332194005A2440 /* background-568h@2.pvr.gz */; };
 		1635DB8C18332194005A2440 /* background.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1635DB8818332194005A2440 /* background.plist */; };
@@ -198,6 +202,12 @@
 
 /* Begin PBXFileReference section */
 		16034D561838189700E1C186 /* bump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bump.wav; sourceTree = "<group>"; };
+		16034D59183940B200E1C186 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
+		16034D5A183940B200E1C186 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
+		16034D5C1839989200E1C186 /* choose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = choose.png; sourceTree = "<group>"; };
+		16034D5D1839989200E1C186 /* take.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = take.png; sourceTree = "<group>"; };
+		16034D6018399CC700E1C186 /* PhotoSizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSizer.h; sourceTree = "<group>"; };
+		16034D6118399CC700E1C186 /* PhotoSizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSizer.m; sourceTree = "<group>"; };
 		1635DB8618332194005A2440 /* background-568h@2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "background-568h@2.plist"; path = "Resources/background-568h@2.plist"; sourceTree = "<group>"; };
 		1635DB8718332194005A2440 /* background-568h@2.pvr.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; name = "background-568h@2.pvr.gz"; path = "Resources/background-568h@2.pvr.gz"; sourceTree = "<group>"; };
 		1635DB8818332194005A2440 /* background.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = background.plist; path = Resources/background.plist; sourceTree = "<group>"; };
@@ -605,6 +615,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16034D5818393F5E00E1C186 /* ImageCropping */ = {
+			isa = PBXGroup;
+			children = (
+				16034D6018399CC700E1C186 /* PhotoSizer.h */,
+				16034D6118399CC700E1C186 /* PhotoSizer.m */,
+			);
+			name = ImageCropping;
+			sourceTree = "<group>";
+		};
 		1635DB8E18332C23005A2440 /* collision */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,8 +670,11 @@
 		16E7E3901831D7CF00044394 /* box_gravity */ = {
 			isa = PBXGroup;
 			children = (
+				16034D5818393F5E00E1C186 /* ImageCropping */,
 				1635DB8E18332C23005A2440 /* collision */,
 				16E7E5B41831D7D200044394 /* AppDelegate.h */,
+				16034D59183940B200E1C186 /* MenuLayer.h */,
+				16034D5A183940B200E1C186 /* MenuLayer.m */,
 				16E7E5B51831D7D200044394 /* AppDelegate.mm */,
 				16E7E5B71831D7D200044394 /* GameLayer.h */,
 				16E7E5B81831D7D200044394 /* GameLayer.mm */,
@@ -670,6 +692,8 @@
 		16E7E3911831D7CF00044394 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				16034D5C1839989200E1C186 /* choose.png */,
+				16034D5D1839989200E1C186 /* take.png */,
 				16034D561838189700E1C186 /* bump.wav */,
 				1635DB8618332194005A2440 /* background-568h@2.plist */,
 				1635DB8718332194005A2440 /* background-568h@2.pvr.gz */,
@@ -1272,12 +1296,14 @@
 				16034D571838189700E1C186 /* bump.wav in Resources */,
 				16E7E3931831D7CF00044394 /* Default.png in Resources */,
 				16E7E39D1831D7CF00044394 /* Icon-Small-50.png in Resources */,
+				16034D5E1839989200E1C186 /* choose.png in Resources */,
 				16E7E3A81831D7CF00044394 /* iTunesArtwork in Resources */,
 				16E7E5C11831D7D200044394 /* blocks.png in Resources */,
 				16E7E3A11831D7CF00044394 /* Icon-Small@2x.png in Resources */,
 				1635DB8C18332194005A2440 /* background.plist in Resources */,
 				16E7E3991831D7CF00044394 /* Default-Landscape~ipad.png in Resources */,
 				16E7E3971831D7CF00044394 /* Default-568h@2x.png in Resources */,
+				16034D5F1839989200E1C186 /* take.png in Resources */,
 				1635DB8B18332194005A2440 /* background-568h@2.pvr.gz in Resources */,
 				16E7E3A51831D7CF00044394 /* Icon@2x.png in Resources */,
 				1635DB8A18332194005A2440 /* background-568h@2.plist in Resources */,
@@ -1315,6 +1341,7 @@
 				16E7E5131831D7D100044394 /* ray2.c in Sources */,
 				1635DB9118332C35005A2440 /* MyContactListener.mm in Sources */,
 				16E7E4AE1831D7D100044394 /* base64.c in Sources */,
+				16034D5B183940B200E1C186 /* MenuLayer.m in Sources */,
 				16E7E3D11831D7CF00044394 /* CCActionTween.m in Sources */,
 				16E7E4081831D7D000044394 /* CCLabelBMFont.m in Sources */,
 				16E7E5911831D7D200044394 /* b2GearJoint.cpp in Sources */,
@@ -1436,6 +1463,7 @@
 				16E7E4B81831D7D100044394 /* CCFileUtils.m in Sources */,
 				16E7E55B1831D7D200044394 /* b2Body.cpp in Sources */,
 				16E7E4A51831D7D100044394 /* CCEventDispatcher.m in Sources */,
+				16034D6218399CC700E1C186 /* PhotoSizer.m in Sources */,
 				16E7E45B1831D7D000044394 /* CCSpriteBatchNode.m in Sources */,
 				16E7E3E41831D7CF00044394 /* CCConfiguration.m in Sources */,
 				16E7E4401831D7D000044394 /* CCScheduler.m in Sources */,

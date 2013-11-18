@@ -22,15 +22,23 @@ enum {
 
 #pragma mark - HelloWorldLayer
 
-@interface GameLayer()
+@interface GameLayer(){
+    CCTexture2D *spriteTexture_;	// weak ref
+	b2World* world;					// strong ref
+    CCSprite *background;           //weak ref
+    MyContactListener *_contactListener;
+    UIImage *userImage;
+
+}
 -(void) initPhysics;
 -(void) addNewSpriteAtPosition:(CGPoint)p;
 @end
 
 @implementation GameLayer
 
-+(CCScene *) scene
+-(CCScene *)sceneWithImage:(UIImage *)image;
 {
+    userImage = image;
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
@@ -150,21 +158,15 @@ enum {
 -(void) addNewSpriteAtPosition:(CGPoint)p
 {
     CCNode *parent = [self getChildByTag:kTagParentNode];
+    CCPhysicsSprite *physicsSprite = [CCPhysicsSprite spriteWithCGImage:userImage.CGImage key:@"sprite"];
+    physicsSprite.tag = 1;
 	
-	//We have a 64x64 sprite sheet with 4 different 32x32 images.  The following code is
-	//just randomly picking one of the images
-	int idx = (CCRANDOM_0_1() > .5 ? 0:1);
-	int idy = (CCRANDOM_0_1() > .5 ? 0:1);
-	CCPhysicsSprite *sprite = [CCPhysicsSprite spriteWithTexture:spriteTexture_ rect:CGRectMake(32 * idx,32 * idy,32,32)];
-    sprite.tag = 1;
-	
-    
-	// Define the dynamic body.
+	//Define the dynamic body.
 	//Set up a 1m squared box in the physics world
 	b2BodyDef bodyDef;
 	bodyDef.type = b2_dynamicBody;
 	bodyDef.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
-    bodyDef.userData = sprite;
+    bodyDef.userData = physicsSprite;
 	b2Body *body = world->CreateBody(&bodyDef);
 	
 	// Define another box shape for our dynamic body.
@@ -177,14 +179,13 @@ enum {
 	fixtureDef.density = 1.0f;
 	fixtureDef.friction = 0.3f;
     fixtureDef.isSensor = false;
-    //fixtureDef.userData = sprite;
 	body->CreateFixture(&fixtureDef);
 	
 	
-	[parent addChild:sprite];
-	[sprite setPTMRatio:PTM_RATIO];
-	[sprite setB2Body:body];
-	[sprite setPosition: ccp( p.x, p.y)];
+	[parent addChild:physicsSprite];
+	[physicsSprite setPTMRatio:PTM_RATIO];
+	[physicsSprite setB2Body:body];
+	[physicsSprite setPosition: ccp( p.x, p.y)];
     
 }
 

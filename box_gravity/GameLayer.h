@@ -24,14 +24,7 @@
 
 
 @interface GameLayer : CCLayer
-{
-	CCTexture2D *spriteTexture_;	// weak ref
-	b2World* world;					// strong ref
-    CCSprite *background;           //weak ref
-    MyContactListener *_contactListener;
-}
-
-// returns a CCScene that contains the HelloWorldLayer as the only child
-+(CCScene *) scene;
+// returns a CCScene that contains the GameLayer as the only child
+-(CCScene *)sceneWithImage:(UIImage *)image;
 
 @end
