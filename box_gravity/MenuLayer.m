@@ -8,6 +8,7 @@
 
 #import "MenuLayer.h"
 #import "PhotoSizer.h"
+#import "ImageCropViewController.h"
 
 @interface MenuLayer(){
     UIImage *newImage;
@@ -79,7 +80,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [picker dismissModalViewControllerAnimated:YES];
     [picker.view removeFromSuperview];
     [picker release];
-    newImage = [PhotoSizer resizeImage:originalImage size:CGSizeMake(64.0,64.0)];
+    ImageCropViewController *imageCropViewController = [[ImageCropViewController alloc]initWithImage:originalImage];
+    [[[CCDirector sharedDirector] view] addSubview:imageCropViewController.view];
+    
+    //newImage = [PhotoSizer resizeImage:originalImage size:CGSizeMake(64.0,64.0)];
     // Let's create a sprite now that we have an image
    
 }
