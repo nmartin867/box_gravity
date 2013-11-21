@@ -35,8 +35,6 @@
 		16E7E39D1831D7CF00044394 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 16E7E39C1831D7CF00044394 /* Icon-Small-50.png */; };
 		16E7E39F1831D7CF00044394 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 16E7E39E1831D7CF00044394 /* Icon-Small.png */; };
 		16E7E3A11831D7CF00044394 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16E7E3A01831D7CF00044394 /* Icon-Small@2x.png */; };
-		16E7E3A31831D7CF00044394 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 16E7E3A21831D7CF00044394 /* Icon.png */; };
-		16E7E3A51831D7CF00044394 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16E7E3A41831D7CF00044394 /* Icon@2x.png */; };
 		16E7E3A81831D7CF00044394 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 16E7E3A71831D7CF00044394 /* iTunesArtwork */; };
 		16E7E3AD1831D7CF00044394 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E7E3AC1831D7CF00044394 /* CCAction.m */; };
 		16E7E3B01831D7CF00044394 /* CCActionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E7E3AF1831D7CF00044394 /* CCActionCamera.m */; };
@@ -243,8 +241,6 @@
 		16E7E39C1831D7CF00044394 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Resources/Icon-Small-50.png"; sourceTree = "<group>"; };
 		16E7E39E1831D7CF00044394 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Resources/Icon-Small.png"; sourceTree = "<group>"; };
 		16E7E3A01831D7CF00044394 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Resources/Icon-Small@2x.png"; sourceTree = "<group>"; };
-		16E7E3A21831D7CF00044394 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
-		16E7E3A41831D7CF00044394 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = "<group>"; };
 		16E7E3A61831D7CF00044394 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
 		16E7E3A71831D7CF00044394 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/iTunesArtwork; sourceTree = "<group>"; };
 		16E7E3AB1831D7CF00044394 /* CCAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCAction.h; path = libs/cocos2d/CCAction.h; sourceTree = "<group>"; };
@@ -736,8 +732,6 @@
 				16E7E39C1831D7CF00044394 /* Icon-Small-50.png */,
 				16E7E39E1831D7CF00044394 /* Icon-Small.png */,
 				16E7E3A01831D7CF00044394 /* Icon-Small@2x.png */,
-				16E7E3A21831D7CF00044394 /* Icon.png */,
-				16E7E3A41831D7CF00044394 /* Icon@2x.png */,
 				16E7E3A61831D7CF00044394 /* Info.plist */,
 				16E7E3A71831D7CF00044394 /* iTunesArtwork */,
 				16E7E5C01831D7D200044394 /* blocks.png */,
@@ -1306,6 +1300,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Nick Martin";
+				TargetAttributes = {
+					16E7E3781831D7CE00044394 = {
+						DevelopmentTeam = CPD56F56QP;
+					};
+				};
 			};
 			buildConfigurationList = 16E7E3741831D7CE00044394 /* Build configuration list for PBXProject "box_gravity" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1331,7 +1330,6 @@
 			files = (
 				66111CD8183C8DB600E6CCBC /* photo_cropper_rect_on@2x.png in Resources */,
 				1635DB8D18332194005A2440 /* background.pvr.gz in Resources */,
-				16E7E3A31831D7CF00044394 /* Icon.png in Resources */,
 				16E7E5011831D7D100044394 /* ChangeLog in Resources */,
 				16E7E3951831D7CF00044394 /* Default@2x.png in Resources */,
 				66111CD4183C8DB600E6CCBC /* photo_cropper_bg@2x.png in Resources */,
@@ -1353,7 +1351,6 @@
 				16E7E3971831D7CF00044394 /* Default-568h@2x.png in Resources */,
 				16034D5F1839989200E1C186 /* take.png in Resources */,
 				1635DB8B18332194005A2440 /* background-568h@2.pvr.gz in Resources */,
-				16E7E3A51831D7CF00044394 /* Icon@2x.png in Resources */,
 				66111CD7183C8DB600E6CCBC /* photo_cropper_rect_on.png in Resources */,
 				1635DB8A18332194005A2440 /* background-568h@2.plist in Resources */,
 				66111CD6183C8DB600E6CCBC /* photo_cropper_rect@2x.png in Resources */,
@@ -1580,6 +1577,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nick Martin (4Z56XKDNRX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nick Martin (4Z56XKDNRX)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1597,6 +1596,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"box_gravity/libs\"";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1606,6 +1606,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nick Martin (4Z56XKDNRX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nick Martin (4Z56XKDNRX)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = box_gravity/Prefix.pch;
@@ -1622,6 +1624,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "\"box_gravity/libs\"";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

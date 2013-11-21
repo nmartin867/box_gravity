@@ -15,9 +15,11 @@
     CCSprite *newSprite;
     UIImage *croppedImage;
 }
+
 @end
 
 @implementation MenuLayer
+
 - (id)init
 {
     self = [super init];
@@ -102,6 +104,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
          didCropPhoto:(UIImage *)photo
 {
     croppedImage = photo;
+    [photoCropper dismissModalViewControllerAnimated:YES];
+    [photoCropper.view removeFromSuperview];
+    [photoCropper release];
 }
 
 - (void) photoCropperDidCancel:(SSPhotoCropperViewController *)photoCropper
