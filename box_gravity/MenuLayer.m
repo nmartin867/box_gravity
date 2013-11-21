@@ -8,11 +8,12 @@
 
 #import "MenuLayer.h"
 #import "PhotoSizer.h"
-#import "ImageCropViewController.h"
+
 
 @interface MenuLayer(){
     UIImage *newImage;
     CCSprite *newSprite;
+    UIImage *croppedImage;
 }
 @end
 
@@ -76,17 +77,38 @@
 
 -(void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    UIImage *originalImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    UIImage *imageToCrop = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     [picker dismissModalViewControllerAnimated:YES];
     [picker.view removeFromSuperview];
     [picker release];
-    ImageCropViewController *imageCropViewController = [[ImageCropViewController alloc]initWithImage:originalImage];
-    [[[CCDirector sharedDirector] view] addSubview:imageCropViewController.view];
+    SSPhotoCropperViewController *photoCropper =
+    [[SSPhotoCropperViewController alloc] initWithPhoto:imageToCrop
+                                               delegate:self
+                                                 uiMode:SSPCUIModePresentedAsModalViewController
+                                        showsInfoButton:YES];
+    [photoCropper setMinZoomScale:0.75f];
+    [photoCropper setMaxZoomScale:1.50f];
+    [[[CCDirector sharedDirector] view] addSubview:photoCropper.view];
     
     //newImage = [PhotoSizer resizeImage:originalImage size:CGSizeMake(64.0,64.0)];
     // Let's create a sprite now that we have an image
    
 }
+
+#pragma -
+#pragma SSPhotoCropperDelegate Methods
+
+- (void) photoCropper:(SSPhotoCropperViewController *)photoCropper
+         didCropPhoto:(UIImage *)photo
+{
+    croppedImage = photo;
+}
+
+- (void) photoCropperDidCancel:(SSPhotoCropperViewController *)photoCropper
+{
+    [photoCropper dismissModalViewControllerAnimated:YES];
+}
+
 
 
     
