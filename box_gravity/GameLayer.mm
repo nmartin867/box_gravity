@@ -27,7 +27,7 @@ enum {
 	b2World* world;					// strong ref
     CCSprite *background;           //weak ref
     MyContactListener *_contactListener;
-    UIImage *userImage;
+    
 }
 
 -(void) initPhysics;
@@ -36,8 +36,12 @@ enum {
 
 @implementation GameLayer
 
--(CCScene *)scene;
+UIImage *userImage;
+
++(CCScene *)sceneWithImage:(UIImage *)image
 {
+    NSAssert(image != nil, @"GameLayer cannot be initialized with nil image!");
+    userImage = image;
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
@@ -51,33 +55,28 @@ enum {
 	return scene;
 }
 
--(id)initWithImage:(UIImage *)image
-{
-    NSAssert(userImage != nil, @"GameLayer cannot be initialized with nil image!");
-	if( (self=[super init])) {
-		userImage = image;
-        [[SimpleAudioEngine sharedEngine]preloadEffect:@"bump.wav"];
-		// enable events
-		self.touchEnabled = YES;
-		self.accelerometerEnabled = YES;
-
-		// init physics
-		[self initPhysics];
-        
-        //set up background
-        CGSize winSize = [CCDirector sharedDirector].winSize;
-		[self addNewSpriteAtPosition:ccp(winSize.width/2, winSize.height/2)];
-		[self scheduleUpdate];
-	}
-	return self;
-}
-
 - (id)init
 {
     self = [super init];
     if (self) {
-        [self initWithImage:nil];
+        {
+            [[SimpleAudioEngine sharedEngine]preloadEffect:@"bump.wav"];
+            // enable events
+            self.touchEnabled = YES;
+            self.accelerometerEnabled = YES;
+            
+            // init physics
+            [self initPhysics];
+            
+            //set up background
+            CGSize winSize = [CCDirector sharedDirector].winSize;
+            [self addNewSpriteAtPosition:ccp(winSize.width/2, winSize.height/2)];
+            [self scheduleUpdate];
+        }
+        return self;
     }
+    
+    
     return self;
 }
 
@@ -95,7 +94,6 @@ enum {
 	gravity.Set(0.0f, -10.0f);
 	world = new b2World(gravity);
 	
-	
 	// Do we want to let bodies sleep?
 	world->SetAllowSleeping(true);
 	
@@ -105,8 +103,6 @@ enum {
     _contactListener = new MyContactListener();
     world->SetContactListener(_contactListener);
     [self createBorder];
-	
-    
 }
 
 -(void)createBorder{
@@ -141,9 +137,11 @@ enum {
 
 -(void) addNewSpriteAtPosition:(CGPoint)p
 {
+    CCLOG(@"%f",userImage.size.width);
     CCNode *parent = [self getChildByTag:kTagParentNode];
     CCPhysicsSprite *physicsSprite = [CCPhysicsSprite spriteWithCGImage:userImage.CGImage
                                                                     key:@"sprite"];
+    
     physicsSprite.tag = 1;
     
 	//Define the dynamic body.

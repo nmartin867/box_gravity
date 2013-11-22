@@ -10,6 +10,7 @@
 #import "PhotoSizer.h"
 #import "CropPreviewViewController.h"
 #import "GameLayer.h"
+#import "PhotoSizer.h"
 
 
 @interface MenuLayer(){
@@ -131,13 +132,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
 
 - (void) photoPreviewer:(CropPreviewViewController *)photoPreviewer
          didAcceptPhoto:(UIImage *)photo{
+    UIImage *spriteImage = [PhotoSizer resizeImage:photo size:CGSizeMake(64.0, 64.0)];
     [photoPreviewer dismissModalViewControllerAnimated:YES];
     [photoPreviewer dismissModalViewControllerAnimated:YES];
     [photoPreviewer.view removeFromSuperview];
     [photoPreviewer release];
 
-    GameLayer *gameLayer = [[GameLayer alloc]initWithImage:photo];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:gameLayer.scene]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameLayer sceneWithImage:spriteImage]]];
     
 }
 - (void) photoPreviewerDidRetake:(CropPreviewViewController *)photoPreviewer{

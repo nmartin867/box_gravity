@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01F9F779183F04F900D24676 /* CropPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F9F778183F04F900D24676 /* CropPreview.xib */; };
 		16034D571838189700E1C186 /* bump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 16034D561838189700E1C186 /* bump.wav */; };
 		16034D5B183940B200E1C186 /* MenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16034D5A183940B200E1C186 /* MenuLayer.mm */; };
 		16034D5E1839989200E1C186 /* choose.png in Resources */ = {isa = PBXBuildFile; fileRef = 16034D5C1839989200E1C186 /* choose.png */; };
@@ -205,10 +206,10 @@
 		66111CD8183C8DB600E6CCBC /* photo_cropper_rect_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66111CCF183C8DB600E6CCBC /* photo_cropper_rect_on@2x.png */; };
 		66111CD9183C8DB600E6CCBC /* SSPhotoCropperViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66111CD1183C8DB600E6CCBC /* SSPhotoCropperViewController.mm */; };
 		66111CDA183C8DB600E6CCBC /* SSPhotoCropperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66111CD2183C8DB600E6CCBC /* SSPhotoCropperViewController.xib */; };
-		66111CE2183C957B00E6CCBC /* CropPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66111CE1183C957B00E6CCBC /* CropPreview.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01F9F778183F04F900D24676 /* CropPreview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CropPreview.xib; sourceTree = "<group>"; };
 		16034D561838189700E1C186 /* bump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bump.wav; sourceTree = "<group>"; };
 		16034D59183940B200E1C186 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
 		16034D5A183940B200E1C186 /* MenuLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuLayer.mm; sourceTree = "<group>"; };
@@ -609,7 +610,6 @@
 		66111CD1183C8DB600E6CCBC /* SSPhotoCropperViewController.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = SSPhotoCropperViewController.mm; sourceTree = "<group>"; };
 		66111CD2183C8DB600E6CCBC /* SSPhotoCropperViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSPhotoCropperViewController.xib; sourceTree = "<group>"; };
 		66111CDE183C8FD800E6CCBC /* CropPreviewViewController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = CropPreviewViewController.h; sourceTree = "<group>"; };
-		66111CE1183C957B00E6CCBC /* CropPreview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CropPreview.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -644,7 +644,7 @@
 				16034D6118399CC700E1C186 /* PhotoSizer.mm */,
 				1616495A183EA2C800FC9C14 /* CropPreviewViewController.mm */,
 				66111CDE183C8FD800E6CCBC /* CropPreviewViewController.h */,
-				66111CE1183C957B00E6CCBC /* CropPreview.xib */,
+				01F9F778183F04F900D24676 /* CropPreview.xib */,
 			);
 			name = ImageCropping;
 			sourceTree = "<group>";
@@ -1341,10 +1341,10 @@
 				66111CD5183C8DB600E6CCBC /* photo_cropper_rect.png in Resources */,
 				16E7E3931831D7CF00044394 /* Default.png in Resources */,
 				16E7E39D1831D7CF00044394 /* Icon-Small-50.png in Resources */,
-				66111CE2183C957B00E6CCBC /* CropPreview.xib in Resources */,
 				16034D5E1839989200E1C186 /* choose.png in Resources */,
 				16E7E3A81831D7CF00044394 /* iTunesArtwork in Resources */,
 				16E7E5C11831D7D200044394 /* blocks.png in Resources */,
+				01F9F779183F04F900D24676 /* CropPreview.xib in Resources */,
 				16E7E3A11831D7CF00044394 /* Icon-Small@2x.png in Resources */,
 				1635DB8C18332194005A2440 /* background.plist in Resources */,
 				16E7E3991831D7CF00044394 /* Default-Landscape~ipad.png in Resources */,

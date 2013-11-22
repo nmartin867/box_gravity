@@ -57,9 +57,11 @@
 
 - (void)dealloc {
     [_imageView release];
+    [_imageView release];
     [super dealloc];
 }
 - (void)viewDidUnload {
+    [self setImageView:nil];
     [self setImageView:nil];
     [super viewDidUnload];
 }

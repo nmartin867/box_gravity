@@ -10,7 +10,7 @@
 @protocol CropPreviewDelegate;
 
 @interface CropPreviewViewController : UIViewController
-
+@property (retain, nonatomic) IBOutlet UIImageView *imageView;
 -(id)initWithImage:(UIImage *)image delegate:(id<CropPreviewDelegate>)delegate;
 @end
 
