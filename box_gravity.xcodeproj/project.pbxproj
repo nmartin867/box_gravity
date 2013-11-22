@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		16034D571838189700E1C186 /* bump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 16034D561838189700E1C186 /* bump.wav */; };
-		16034D5B183940B200E1C186 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16034D5A183940B200E1C186 /* MenuLayer.m */; };
+		16034D5B183940B200E1C186 /* MenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16034D5A183940B200E1C186 /* MenuLayer.mm */; };
 		16034D5E1839989200E1C186 /* choose.png in Resources */ = {isa = PBXBuildFile; fileRef = 16034D5C1839989200E1C186 /* choose.png */; };
 		16034D5F1839989200E1C186 /* take.png in Resources */ = {isa = PBXBuildFile; fileRef = 16034D5D1839989200E1C186 /* take.png */; };
-		16034D6218399CC700E1C186 /* PhotoSizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16034D6118399CC700E1C186 /* PhotoSizer.m */; };
+		16034D6218399CC700E1C186 /* PhotoSizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16034D6118399CC700E1C186 /* PhotoSizer.mm */; };
+		1616495B183EA2C800FC9C14 /* CropPreviewViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1616495A183EA2C800FC9C14 /* CropPreviewViewController.mm */; };
 		1635DB8A18332194005A2440 /* background-568h@2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1635DB8618332194005A2440 /* background-568h@2.plist */; };
 		1635DB8B18332194005A2440 /* background-568h@2.pvr.gz in Resources */ = {isa = PBXBuildFile; fileRef = 1635DB8718332194005A2440 /* background-568h@2.pvr.gz */; };
 		1635DB8C18332194005A2440 /* background.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1635DB8818332194005A2440 /* background.plist */; };
@@ -202,20 +203,20 @@
 		66111CD6183C8DB600E6CCBC /* photo_cropper_rect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66111CCD183C8DB600E6CCBC /* photo_cropper_rect@2x.png */; };
 		66111CD7183C8DB600E6CCBC /* photo_cropper_rect_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 66111CCE183C8DB600E6CCBC /* photo_cropper_rect_on.png */; };
 		66111CD8183C8DB600E6CCBC /* photo_cropper_rect_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66111CCF183C8DB600E6CCBC /* photo_cropper_rect_on@2x.png */; };
-		66111CD9183C8DB600E6CCBC /* SSPhotoCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66111CD1183C8DB600E6CCBC /* SSPhotoCropperViewController.m */; };
+		66111CD9183C8DB600E6CCBC /* SSPhotoCropperViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66111CD1183C8DB600E6CCBC /* SSPhotoCropperViewController.mm */; };
 		66111CDA183C8DB600E6CCBC /* SSPhotoCropperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66111CD2183C8DB600E6CCBC /* SSPhotoCropperViewController.xib */; };
-		66111CE0183C8FD800E6CCBC /* ImageCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66111CDF183C8FD800E6CCBC /* ImageCropViewController.m */; };
 		66111CE2183C957B00E6CCBC /* CropPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66111CE1183C957B00E6CCBC /* CropPreview.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		16034D561838189700E1C186 /* bump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bump.wav; sourceTree = "<group>"; };
 		16034D59183940B200E1C186 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
-		16034D5A183940B200E1C186 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
+		16034D5A183940B200E1C186 /* MenuLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MenuLayer.mm; sourceTree = "<group>"; };
 		16034D5C1839989200E1C186 /* choose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = choose.png; sourceTree = "<group>"; };
 		16034D5D1839989200E1C186 /* take.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = take.png; sourceTree = "<group>"; };
-		16034D6018399CC700E1C186 /* PhotoSizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSizer.h; sourceTree = "<group>"; };
-		16034D6118399CC700E1C186 /* PhotoSizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSizer.m; sourceTree = "<group>"; };
+		16034D6018399CC700E1C186 /* PhotoSizer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = PhotoSizer.h; sourceTree = "<group>"; };
+		16034D6118399CC700E1C186 /* PhotoSizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PhotoSizer.mm; sourceTree = "<group>"; };
+		1616495A183EA2C800FC9C14 /* CropPreviewViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CropPreviewViewController.mm; sourceTree = "<group>"; };
 		1635DB8618332194005A2440 /* background-568h@2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "background-568h@2.plist"; path = "Resources/background-568h@2.plist"; sourceTree = "<group>"; };
 		1635DB8718332194005A2440 /* background-568h@2.pvr.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; name = "background-568h@2.pvr.gz"; path = "Resources/background-568h@2.pvr.gz"; sourceTree = "<group>"; };
 		1635DB8818332194005A2440 /* background.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = background.plist; path = Resources/background.plist; sourceTree = "<group>"; };
@@ -604,11 +605,10 @@
 		66111CCD183C8DB600E6CCBC /* photo_cropper_rect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_cropper_rect@2x.png"; sourceTree = "<group>"; };
 		66111CCE183C8DB600E6CCBC /* photo_cropper_rect_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo_cropper_rect_on.png; sourceTree = "<group>"; };
 		66111CCF183C8DB600E6CCBC /* photo_cropper_rect_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_cropper_rect_on@2x.png"; sourceTree = "<group>"; };
-		66111CD0183C8DB600E6CCBC /* SSPhotoCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPhotoCropperViewController.h; sourceTree = "<group>"; };
-		66111CD1183C8DB600E6CCBC /* SSPhotoCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPhotoCropperViewController.m; sourceTree = "<group>"; };
+		66111CD0183C8DB600E6CCBC /* SSPhotoCropperViewController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = SSPhotoCropperViewController.h; sourceTree = "<group>"; };
+		66111CD1183C8DB600E6CCBC /* SSPhotoCropperViewController.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = SSPhotoCropperViewController.mm; sourceTree = "<group>"; };
 		66111CD2183C8DB600E6CCBC /* SSPhotoCropperViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSPhotoCropperViewController.xib; sourceTree = "<group>"; };
-		66111CDE183C8FD800E6CCBC /* ImageCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCropViewController.h; sourceTree = "<group>"; };
-		66111CDF183C8FD800E6CCBC /* ImageCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCropViewController.m; sourceTree = "<group>"; };
+		66111CDE183C8FD800E6CCBC /* CropPreviewViewController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = CropPreviewViewController.h; sourceTree = "<group>"; };
 		66111CE1183C957B00E6CCBC /* CropPreview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CropPreview.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -638,12 +638,12 @@
 			children = (
 				66111CC9183C8DB600E6CCBC /* Graphics */,
 				66111CD0183C8DB600E6CCBC /* SSPhotoCropperViewController.h */,
-				66111CD1183C8DB600E6CCBC /* SSPhotoCropperViewController.m */,
+				66111CD1183C8DB600E6CCBC /* SSPhotoCropperViewController.mm */,
 				66111CD2183C8DB600E6CCBC /* SSPhotoCropperViewController.xib */,
 				16034D6018399CC700E1C186 /* PhotoSizer.h */,
-				16034D6118399CC700E1C186 /* PhotoSizer.m */,
-				66111CDE183C8FD800E6CCBC /* ImageCropViewController.h */,
-				66111CDF183C8FD800E6CCBC /* ImageCropViewController.m */,
+				16034D6118399CC700E1C186 /* PhotoSizer.mm */,
+				1616495A183EA2C800FC9C14 /* CropPreviewViewController.mm */,
+				66111CDE183C8FD800E6CCBC /* CropPreviewViewController.h */,
 				66111CE1183C957B00E6CCBC /* CropPreview.xib */,
 			);
 			name = ImageCropping;
@@ -699,7 +699,7 @@
 				1635DB8E18332C23005A2440 /* collision */,
 				16E7E5B41831D7D200044394 /* AppDelegate.h */,
 				16034D59183940B200E1C186 /* MenuLayer.h */,
-				16034D5A183940B200E1C186 /* MenuLayer.m */,
+				16034D5A183940B200E1C186 /* MenuLayer.mm */,
 				16E7E5B51831D7D200044394 /* AppDelegate.mm */,
 				16E7E5B71831D7D200044394 /* GameLayer.h */,
 				16E7E5B81831D7D200044394 /* GameLayer.mm */,
@@ -1388,7 +1388,7 @@
 				16E7E5131831D7D100044394 /* ray2.c in Sources */,
 				1635DB9118332C35005A2440 /* MyContactListener.mm in Sources */,
 				16E7E4AE1831D7D100044394 /* base64.c in Sources */,
-				16034D5B183940B200E1C186 /* MenuLayer.m in Sources */,
+				16034D5B183940B200E1C186 /* MenuLayer.mm in Sources */,
 				16E7E3D11831D7CF00044394 /* CCActionTween.m in Sources */,
 				16E7E4081831D7D000044394 /* CCLabelBMFont.m in Sources */,
 				16E7E5911831D7D200044394 /* b2GearJoint.cpp in Sources */,
@@ -1407,7 +1407,7 @@
 				16E7E42A1831D7D000044394 /* CCParticleSystem.m in Sources */,
 				16E7E47F1831D7D000044394 /* CCTransition.m in Sources */,
 				16E7E5321831D7D200044394 /* b2DynamicTree.cpp in Sources */,
-				66111CD9183C8DB600E6CCBC /* SSPhotoCropperViewController.m in Sources */,
+				66111CD9183C8DB600E6CCBC /* SSPhotoCropperViewController.mm in Sources */,
 				16E7E55E1831D7D200044394 /* b2ContactManager.cpp in Sources */,
 				16E7E4271831D7D000044394 /* CCParticleExamples.m in Sources */,
 				16E7E4241831D7D000044394 /* CCParticleBatchNode.m in Sources */,
@@ -1418,6 +1418,7 @@
 				16E7E4C11831D7D100044394 /* CCVertex.m in Sources */,
 				16E7E4C71831D7D100044394 /* NSThread+performBlock.m in Sources */,
 				16E7E5A31831D7D200044394 /* b2RopeJoint.cpp in Sources */,
+				1616495B183EA2C800FC9C14 /* CropPreviewViewController.mm in Sources */,
 				16E7E3CE1831D7CF00044394 /* CCActionTiledGrid.m in Sources */,
 				16E7E5611831D7D200044394 /* b2Fixture.cpp in Sources */,
 				16E7E4151831D7D000044394 /* CCMenuItem.m in Sources */,
@@ -1475,7 +1476,6 @@
 				16E7E5AD1831D7D200044394 /* b2Rope.cpp in Sources */,
 				16E7E4D81831D7D100044394 /* CDAudioManager.m in Sources */,
 				16E7E52C1831D7D100044394 /* b2Collision.cpp in Sources */,
-				66111CE0183C8FD800E6CCBC /* ImageCropViewController.m in Sources */,
 				16E7E4851831D7D000044394 /* CCTransitionProgress.m in Sources */,
 				16E7E4A81831D7D100044394 /* CCGLView.m in Sources */,
 				16E7E4DC1831D7D100044394 /* CDOpenALSupport.m in Sources */,
@@ -1512,7 +1512,7 @@
 				16E7E4B81831D7D100044394 /* CCFileUtils.m in Sources */,
 				16E7E55B1831D7D200044394 /* b2Body.cpp in Sources */,
 				16E7E4A51831D7D100044394 /* CCEventDispatcher.m in Sources */,
-				16034D6218399CC700E1C186 /* PhotoSizer.m in Sources */,
+				16034D6218399CC700E1C186 /* PhotoSizer.mm in Sources */,
 				16E7E45B1831D7D000044394 /* CCSpriteBatchNode.m in Sources */,
 				16E7E3E41831D7CF00044394 /* CCConfiguration.m in Sources */,
 				16E7E4401831D7D000044394 /* CCScheduler.m in Sources */,
@@ -1581,6 +1581,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nick Martin (4Z56XKDNRX)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = box_gravity/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1609,6 +1610,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Nick Martin (4Z56XKDNRX)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nick Martin (4Z56XKDNRX)";
 				COPY_PHASE_STRIP = YES;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = box_gravity/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (

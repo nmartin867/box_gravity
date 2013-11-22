@@ -8,6 +8,8 @@
 
 #import "MenuLayer.h"
 #import "PhotoSizer.h"
+#import "CropPreviewViewController.h"
+#import "GameLayer.h"
 
 
 @interface MenuLayer(){
@@ -97,6 +99,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
    
 }
 
+-(void)showCropPreview:(UIImage *)imageToPreview{
+    CropPreviewViewController *previewController = [[CropPreviewViewController alloc]initWithImage:imageToPreview delegate:self];
+    [[[CCDirector sharedDirector]view]addSubview:previewController.view];
+}
+
 #pragma -
 #pragma SSPhotoCropperDelegate Methods
 
@@ -107,13 +114,38 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [photoCropper dismissModalViewControllerAnimated:YES];
     [photoCropper.view removeFromSuperview];
     [photoCropper release];
+    [self showCropPreview:croppedImage];
 }
 
 - (void) photoCropperDidCancel:(SSPhotoCropperViewController *)photoCropper
 {
     [photoCropper dismissModalViewControllerAnimated:YES];
+    [photoCropper dismissModalViewControllerAnimated:YES];
+    [photoCropper.view removeFromSuperview];
+    [photoCropper release];
 }
 
+
+#pragma -
+#pragma PhotoPreviewDelegate Methods
+
+- (void) photoPreviewer:(CropPreviewViewController *)photoPreviewer
+         didAcceptPhoto:(UIImage *)photo{
+    [photoPreviewer dismissModalViewControllerAnimated:YES];
+    [photoPreviewer dismissModalViewControllerAnimated:YES];
+    [photoPreviewer.view removeFromSuperview];
+    [photoPreviewer release];
+
+    GameLayer *gameLayer = [[GameLayer alloc]initWithImage:photo];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:gameLayer.scene]];
+    
+}
+- (void) photoPreviewerDidRetake:(CropPreviewViewController *)photoPreviewer{
+    [photoPreviewer dismissModalViewControllerAnimated:YES];
+    [photoPreviewer dismissModalViewControllerAnimated:YES];
+    [photoPreviewer.view removeFromSuperview];
+    [photoPreviewer release];
+}
 
 
     

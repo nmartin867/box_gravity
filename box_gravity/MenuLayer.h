@@ -9,7 +9,8 @@
 #import "CCLayer.h"
 #import "cocos2d.h"
 #import "SSPhotoCropperViewController.h"
+#import "CropPreviewViewController.h"
 
-@interface MenuLayer : CCLayer<UIImagePickerControllerDelegate, UINavigationControllerDelegate, SSPhotoCropperDelegate>
+@interface MenuLayer : CCLayer<UIImagePickerControllerDelegate, UINavigationControllerDelegate, SSPhotoCropperDelegate, CropPreviewDelegate>
 +(CCScene *) scene;
 @end

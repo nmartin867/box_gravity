@@ -28,17 +28,16 @@ enum {
     CCSprite *background;           //weak ref
     MyContactListener *_contactListener;
     UIImage *userImage;
-
 }
+
 -(void) initPhysics;
 -(void) addNewSpriteAtPosition:(CGPoint)p;
 @end
 
 @implementation GameLayer
 
--(CCScene *)sceneWithImage:(UIImage *)image;
+-(CCScene *)scene;
 {
-    userImage = image;
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
@@ -52,49 +51,34 @@ enum {
 	return scene;
 }
 
--(id) init
+-(id)initWithImage:(UIImage *)image
 {
+    NSAssert(userImage != nil, @"GameLayer cannot be initialized with nil image!");
 	if( (self=[super init])) {
-		
+		userImage = image;
         [[SimpleAudioEngine sharedEngine]preloadEffect:@"bump.wav"];
 		// enable events
 		self.touchEnabled = YES;
 		self.accelerometerEnabled = YES;
-		CGSize s = [CCDirector sharedDirector].winSize;
-		
-        
+
 		// init physics
 		[self initPhysics];
         
         //set up background
         CGSize winSize = [CCDirector sharedDirector].winSize;
-        bool is5 = (winSize.height == 568) || (winSize.width == 568);
-        CGFloat centerOffsetX = is5 ? ((568-480)/2) : 0;
-        self.position = ccp(centerOffsetX,0);
-        
-        if(is5)
-        {
-            // load the extended background from iPhone5
-            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"background-568h@2x.plist"];
-        }
-        else
-        {
-            // load the standard background
-            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"background.plist"];
-        }
-		background = [CCSprite spriteWithSpriteFrameName:@"hardwood-wallpaper.jpg"];
-        [self addChild:background z:0];
-        background.anchorPoint = ccp(0,0);
-        background.position = ccp(-centerOffsetX,0);
-		//Set up sprite
-		// Use batch node. Faster
-		CCSpriteBatchNode *blockBatch = [CCSpriteBatchNode batchNodeWithFile:@"blocks.png" capacity:100];
-        spriteTexture_ = [blockBatch texture];
-		[self addChild:blockBatch z:1 tag:kTagParentNode];
-		[self addNewSpriteAtPosition:ccp(s.width/2, s.height/2)];
+		[self addNewSpriteAtPosition:ccp(winSize.width/2, winSize.height/2)];
 		[self scheduleUpdate];
 	}
 	return self;
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [self initWithImage:nil];
+    }
+    return self;
 }
 
 -(void) dealloc
@@ -158,9 +142,10 @@ enum {
 -(void) addNewSpriteAtPosition:(CGPoint)p
 {
     CCNode *parent = [self getChildByTag:kTagParentNode];
-    CCPhysicsSprite *physicsSprite = [CCPhysicsSprite spriteWithCGImage:userImage.CGImage key:@"sprite"];
+    CCPhysicsSprite *physicsSprite = [CCPhysicsSprite spriteWithCGImage:userImage.CGImage
+                                                                    key:@"sprite"];
     physicsSprite.tag = 1;
-	
+    
 	//Define the dynamic body.
 	//Set up a 1m squared box in the physics world
 	b2BodyDef bodyDef;

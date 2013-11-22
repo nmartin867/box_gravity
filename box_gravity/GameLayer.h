@@ -25,6 +25,6 @@
 
 @interface GameLayer : CCLayer
 // returns a CCScene that contains the GameLayer as the only child
--(CCScene *)sceneWithImage:(UIImage *)image;
-
+@property (nonatomic, strong)CCScene *scene;
+-(id)initWithImage:(UIImage *)image;
 @end
