@@ -27,8 +27,8 @@ enum {
 	b2World* world;					// strong ref
     CCSprite *background;           //weak ref
     MyContactListener *_contactListener;
-    
-}
+    int spriteCount;
+  }
 
 -(void) initPhysics;
 -(void) addNewSpriteAtPosition:(CGPoint)p;
@@ -137,10 +137,9 @@ UIImage *userImage;
 
 -(void) addNewSpriteAtPosition:(CGPoint)p
 {
-    CCLOG(@"%f",userImage.size.width);
     CCNode *parent = [self getChildByTag:kTagParentNode];
     CCPhysicsSprite *physicsSprite = [CCPhysicsSprite spriteWithCGImage:userImage.CGImage
-                                                                    key:@"sprite"];
+                                                                    key:@"nick"];
     
     physicsSprite.tag = 1;
     
